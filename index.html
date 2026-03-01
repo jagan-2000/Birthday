@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secret: For Your Eyes Only</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>✨ Birthday Access ✨</h2>
+            <p>Please authenticate to view your surprise.</p>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username (Your Name)" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Hint: Our favorite date?" required>
+                </div>
+                <button type="button" onclick="checkLogin()">Unlock your surprise</button>
+            </form>
+            <p id="error-msg"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            const pass = document.getElementById('password').value; 
+            const input = document.getElementById('username'); 
+            const name = input ? input.value.toLowerCase() : '';
+
+
+            // You can set the password to whatever you want here!
+            if (name =='akilarumugam' && pass === "03031998"){ 
+                document.querySelector('.login-box').innerHTML = `
+                <h2 style="color: #ec407a;">Happy Birthday! ❤️</h2>
+        <p style="font-size: 1.1rem; line-height: 1.6;">
+            "Nee pirantha intha naal... en vazhkkaiyil oru azhagiya thiruppam."<br><br>
+            May your year be as beautiful as your smile!
+        </p>
+        <span style="font-size: 3rem;">🎂✨🌸</span>
+        <button type="button" onclick="world()">Unlock Your Surprise</button>
+        `;
+                // window.location.href = "wish.html"; // Redirect to your wish page
+            } else {
+                document.getElementById('error-msg').innerText = "Incorrect hint! Try again, birthday girl/boy. 😉";
+            }
+        }
+
+        function world(){
+            
+             window.location.href = "final.html"; }
+    </script>
+</body>
+</html>

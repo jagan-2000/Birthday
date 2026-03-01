@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Send Message via WhatsApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f0f2f5;
+    }
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    textarea {
+      width: 100%;
+      height: 80px;
+      padding: 10px;
+      margin-bottom: 10px;
+      resize: none;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #25D366;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1ebe5d;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h3>Share your thoughts 💬</h3>
+    <textarea id="message" placeholder="Type your message..."></textarea>
+    <button onclick="sendWhatsApp()">Send</button>
+  </div>
+
+  <script>
+    function sendWhatsApp() {
+      const msg = document.getElementById("message").value.trim();
+  
+      if (msg === "") {
+        alert("Please enter a message");
+        return;
+      }
+  
+      const phoneNumber = "7092418205"; // ← your WhatsApp number
+      const encodedMsg = encodeURIComponent(msg);
+  
+      const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+      window.open(url, "_blank");
+    }
+  </script>
+  
+
+</body>
+</html>
